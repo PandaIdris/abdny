@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meme Vault</title>
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <style>
+      #memeImg {
+        max-width: 100%;
+        display: block;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body class="bg-dark text-light">
+    <div class="container mt-5 text-center">
+      <h1
+        class="display-1 fw-extrabold text-danger text-center"
+        style="
+          text-shadow:
+            3px 3px 0px #000,
+            6px 6px 0px rgba(0, 0, 0, 0.2);
+        "
+      >
+        موقع ابضنني
+      </h1>
+      <p class="text-white-50 fs-5">اضغط الزرار علي مسؤوليتك الخاصة</p>
+
+      <div class="mt-4">
+        <button
+          id="actionBtn"
+          class="btn btn-danger btn-lg px-4 fw-bold shadow"
+        >
+          ابضنني
+        </button>
+      </div>
+
+      <div class="row justify-content-center mt-4">
+        <div class="col-md-6 col-lg-4">
+          <div id="memeBox" class="d-none">
+            <img
+              id="memeImg"
+              src=""
+              alt="Meme Image"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="jquery-4.0.0.min.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        const myImages = [
+          "https://i.postimg.cc/ZnF5zfhQ/Whats-App-Image-2026-05-23-at-12-09-36-AM.jpg",
+          "https://i.postimg.cc/90jQk6vV/Whats-App-Image-2026-05-23-at-12-09-36-AM-2.jpg",
+          "https://i.postimg.cc/8cBzgyS8/Whats-App-Image-2026-05-23-at-12-09-37-AM.jpg",
+          "https://i.postimg.cc/rsCw2hLb/Whats-App-Image-2026-05-23-at-12-09-37-AM-1.jpg",
+          "https://i.postimg.cc/prYLM0t4/Whats-App-Image-2026-05-23-at-12-09-37-AM-2.jpg",
+          "https://i.postimg.cc/gjq2bMWp/Whats-App-Image-2026-05-23-at-12-09-38-AM.jpg",
+          "https://i.postimg.cc/Hn4k1SCF/Whats-App-Image-2026-05-23-at-12-09-38-AM-1.jpg",
+          "https://i.postimg.cc/D0dw3CTK/Whats-App-Image-2026-05-23-at-12-09-38-AM-2.jpg",
+          "https://i.postimg.cc/3NCxQLTQ/Whats-App-Image-2026-05-23-at-12-09-38-AM-3.jpg",
+          "https://i.postimg.cc/ZnF5zfSS/Whats-App-Image-2026-05-23-at-12-09-38-AM-4.jpg",
+          "https://i.postimg.cc/7hMZrBkZ/Whats-App-Image-2026-05-23-at-12-09-39-AM.jpg",
+          "https://i.postimg.cc/C5HxpvgY/Whats-App-Image-2026-05-23-at-12-09-39-AM-1.jpg",
+          "https://i.postimg.cc/J0czCTL1/Whats-App-Image-2026-05-23-at-12-09-39-AM-2.jpg",
+          "https://i.postimg.cc/fyjRQHNz/Whats-App-Image-2026-05-23-at-12-09-39-AM-3.jpg",
+          "https://i.postimg.cc/QCkdZ63N/Whats-App-Image-2026-05-23-at-12-09-39-AM-4.jpg",
+          "https://i.postimg.cc/hvbtRCBQ/Whats-App-Image-2026-05-23-at-12-09-40-AM.jpg",
+          "https://i.postimg.cc/5yq2WPV0/Whats-App-Image-2026-05-23-at-12-09-40-AM-1.jpg",
+          "https://i.postimg.cc/qqXvHmTg/Whats-App-Image-2026-05-23-at-12-09-40-AM-2.jpg",
+          "https://i.postimg.cc/QCkdZ63F/Whats-App-Image-2026-05-23-at-12-09-40-AM-3.jpg",
+          "https://i.postimg.cc/4ybxR8gK/Whats-App-Image-2026-05-23-at-12-09-40-AM-4.jpg",
+          "https://i.postimg.cc/C5HxpvgB/Whats-App-Image-2026-05-23-at-12-09-40-AM-5.jpg",
+          "https://i.postimg.cc/3rgRGwDB/Whats-App-Image-2026-05-23-at-12-09-41-AM.jpg",
+          "https://i.postimg.cc/8cBzgySr/Whats-App-Image-2026-05-23-at-12-09-41-AM-1.jpg",
+          "https://i.postimg.cc/rsCw2hk4/Whats-App-Image-2026-05-23-at-12-09-41-AM-2.jpg",
+          "https://i.postimg.cc/gjq2bMWZ/Whats-App-Image-2026-05-23-at-12-09-41-AM-3.jpg",
+          "https://i.postimg.cc/Hn4k1Sg5/Whats-App-Image-2026-05-23-at-12-09-41-AM-4.jpg",
+          "https://i.postimg.cc/c1QH3J8k/Whats-App-Image-2026-05-23-at-12-09-42-AM.jpg",
+          "https://i.postimg.cc/sfpXW2ZK/Whats-App-Image-2026-05-23-at-12-09-42-AM-1.jpg",
+          "https://i.postimg.cc/h49jmG72/Whats-App-Image-2026-05-23-at-12-09-42-AM-2.jpg",
+          "https://i.postimg.cc/7Pg6zLTB/Whats-App-Image-2026-05-23-at-12-09-42-AM-3.jpg",
+          "https://i.postimg.cc/59w0ztF7/Whats-App-Image-2026-05-23-at-12-09-44-AM.jpg",
+        ];
+
+        let availableImages = [...myImages];
+
+        $("#actionBtn").click(function () {
+          if (availableImages.length === 0) {
+            availableImages = [...myImages];
+          }
+          
+          const randomIndex = Math.floor(Math.random() * availableImages.length);
+          const selectedImg = availableImages[randomIndex];
+          
+          availableImages.splice(randomIndex, 1);
+          
+          $("#memeImg").attr("src", selectedImg);
+          $("#memeBox").removeClass("d-none").hide().fadeIn(500);
+        });
+      });
+    </script>
+  </body>
+</html>
